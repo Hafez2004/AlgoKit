@@ -31,6 +31,15 @@ typedef enum{
     _long_double_
 }dataType;
 
+typedef union{
+    char c;
+    short s;
+    int i;
+    float f;
+    double d;
+    long l;
+}variant;
+
 typedef struct{
     int size;
     int capacity;
@@ -54,21 +63,16 @@ int da_get_size(const DynamicArray* da);
 
 int da_get_capacity(const DynamicArray* da);
 
-// incomplete functions
+variant da_get(const DynamicArray* da, int index);
 
-void* da_get(const DynamicArray* da, int index);
+void da_set(DynamicArray* da, const variant value, int index);
 
-void da_set(DynamicArray* da, int index, void* const value);
+variant da_find(const DynamicArray* da, const variant value);
 
-int da_find(const DynamicArray* da, void* const value);
+void da_insert(DynamicArray* da, int index, const variant value);
 
-void da_insert(DynamicArray* da, int index, void* const value);
-
+// incomplete function
 void da_remove(DynamicArray* da, int index);
-
-void da_resize(DynamicArray* da, int new_capacity);
-
-void da_sort(DynamicArray* da, int (*cmp)(const void*, const void*));
 
 #ifdef __cplusplus
 }
@@ -83,4 +87,17 @@ void da_sort(DynamicArray* da, int (*cmp)(const void*, const void*));
 1,2,4,8,16,32,64,128,256,512,1024,2048,4096,8192,16384,32768,65536
 when size == capacity -> capacity *= 2
 when size <= capacity / 4 -> capacity /= 2
+*/
+
+/*
+    constant values:
+    - const int a = 10; // a is a constant integer
+    - int const b = 20; // b is a constant integer
+    - const int* p = &a; // pointer to a constant integer
+    - int const* q = &b; // pointer to a constant integer
+
+    constant pointer:
+    - int* const p = &a; // constant pointer to an integer
+    - const int* const q = &b; // constant pointer to a constant integer
+    - int const* const r = &a; // constant pointer to a constant integer
 */

@@ -16,6 +16,9 @@
 #ifndef ALGOKIT_LIB_H
 #define ALGOKIT_LIB_H
 
+#define ALGOKIT_VERSION "1.0.0"
+#define ALGOKIT_AUTHOR "hafez"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
