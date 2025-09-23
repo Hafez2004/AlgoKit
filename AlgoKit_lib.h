@@ -12,7 +12,6 @@
  * @Hafez2004
  * 
  */
-/**/
 
 #ifndef ALGOKIT_LIB_H
 #define ALGOKIT_LIB_H

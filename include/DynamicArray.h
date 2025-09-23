@@ -6,11 +6,9 @@
  * It includes an enumeration for supported data types and a structure representing the dynamic array itself.
  *
  * @author Mohamed Hafez
- * @Hafez2004
  * @date 2025
  *
  * @note This file is compatible with both C and C++ projects.
- * 
  */
 #ifndef DYNAMICARRAY_H
 #define DYNAMICARRAY_H
