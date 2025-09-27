@@ -29,32 +29,46 @@ typedef struct{
     dataType type;
 }DynamicArray;
 
+// Initializes a DynamicArray with the specified data type.
 DynamicArray da_init(dataType type);
 
+// Frees the memory allocated for the dynamic array and resets its fields.
 void da_free(DynamicArray* da);
 
+// Adds the given value to the end of the dynamic array.
 void da_push_back(DynamicArray* da, void* const value);
 
+// Removes the last element from the dynamic array.
 void da_pop_back(DynamicArray* da);
 
+// Prints the elements of the dynamic array to the standard output.
 void da_print(const DynamicArray* da);
 
+// Prints the elements of the dynamic array to the standard output followed by a newline.
 void da_println(const DynamicArray* da);
 
+// Returns the current number of elements in the dynamic array.
 int da_get_size(const DynamicArray* da);
 
+// Returns the current capacity of the dynamic array.
 int da_get_capacity(const DynamicArray* da);
 
+// Inserts the given value at the specified index in the dynamic array.
 void da_insert(DynamicArray* da, const int index, const void* value);
 
+// Sets the element at the specified index to the given value.
 void da_set(DynamicArray* da, const void* value, const int index);
 
+// Returns a pointer to the element at the specified index in the dynamic array.
 void* da_get(const DynamicArray* da, const int index);
 
+// Searches for the first occurrence of the specified value in the dynamic array.
 void* da_find(const DynamicArray* da, const void* value);
 
+// Copies the contents of the source dynamic array to the destination dynamic array.
 void da_copy(DynamicArray* dest, const DynamicArray* src);
 
+// Removes the element at the specified index from the dynamic array.
 void da_remove(DynamicArray* da, const int index);
 
 #ifdef __cplusplus
