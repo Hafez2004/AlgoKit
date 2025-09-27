@@ -18,27 +18,9 @@ extern "C" {
 #endif
 
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "std_libraries/package.h"
 
-typedef enum{
-    _char_,
-    _short_,
-    _int_,
-    _float_,
-    _double_,
-    _long_,
-    _long_double_
-}dataType;
 
-typedef union{
-    char c;
-    short s;
-    int i;
-    float f;
-    double d;
-    long l;
-}variant;
 
 typedef struct{
     int size;
@@ -63,16 +45,17 @@ int da_get_size(const DynamicArray* da);
 
 int da_get_capacity(const DynamicArray* da);
 
-variant da_get(const DynamicArray* da, int index);
+void da_insert(DynamicArray* da, const int index, const void* value);
 
-void da_set(DynamicArray* da, const variant value, int index);
+void da_set(DynamicArray* da, const void* value, const int index);
 
-variant da_find(const DynamicArray* da, const variant value);
+void* da_get(const DynamicArray* da, const int index);
 
-void da_insert(DynamicArray* da, int index, const variant value);
+void* da_find(const DynamicArray* da, const void* value);
 
-// incomplete function
-void da_remove(DynamicArray* da, int index);
+void da_copy(DynamicArray* dest, const DynamicArray* src);
+
+void da_remove(DynamicArray* da, const int index);
 
 #ifdef __cplusplus
 }

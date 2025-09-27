@@ -3,15 +3,28 @@
 #include "AlgoKit_lib.h"
 
 int main(void){
-    DynamicArray da = da_init(_int_);
-    variant x;
-    da_push_back(&da, &(variant){.i = 5});
-    da_push_back(&da, &(variant){.i = 10});
-    da_insert(&da, 0, (variant){.i = 10});
-    da_insert(&da, 1, (variant){.i = 20});
-    da_insert(&da, 1, (variant){.i = 15});
-    da_println(&da);   // prints: 10 15 20
-    printf("index = %d", da_find(&da, (variant){.i = 20}).i);
-
+    DynamicArray DA = da_init(_int_), DA2;
+    for(int i = 0; i < 10; i++){
+        da_push_back(&DA, PTR(3, int));
+    }
+    da_println(&DA);
+    da_insert(&DA, 1, PTR(5, int));
+    da_println(&DA);
+    da_copy(&DA2, &DA);
+    printf("Copied array: ");
+    da_println(&DA2);
     return 0;
 }
+
+/*
+    constant variable:
+    - const int a = 10; // a is a constant integer
+    - int const b = 20; // b is a constant integer
+    - const int* p = &a; // pointer to a constant integer
+    - int const* q = &b; // pointer to a constant integer
+
+    constant pointer:
+    - int* const p = &a; // constant pointer to an integer
+    - const int* const q = &b; // constant pointer to a constant integer
+    - int const* const r = &a; // constant pointer to a constant integer
+*/

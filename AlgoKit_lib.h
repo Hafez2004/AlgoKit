@@ -24,6 +24,7 @@ extern "C" {
 #endif
 
 #include "include/DynamicArray.h"
+#include "include/Sorting.h"
 
 #ifdef __cplusplus
 }
